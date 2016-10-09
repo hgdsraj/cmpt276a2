@@ -10,11 +10,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootstrap-sass'
-gem 'pg'
 gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'sqlite3'
+
 end
 
 group :development do
@@ -31,5 +32,8 @@ group :test do
   gem 'guard-minitest',           '2.4.4'
 end
 
+group :production do
+  gem 'pg'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
