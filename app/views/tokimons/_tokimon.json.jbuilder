@@ -1,2 +1,2 @@
-json.extract! tokimon, :id, :name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :freeze, :psychic, :total, :created_at, :updated_at
+json.extract! tokimon, :id, :name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :total, :created_at, :updated_at
 json.url tokimon_url(tokimon, format: :json)

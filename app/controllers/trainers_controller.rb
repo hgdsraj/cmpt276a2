@@ -69,6 +69,6 @@ class TrainersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
-      params.require(:trainer).permit(:name, :level, :tokimons)
+      params.require(:trainer).permit(:name, :level, :tokimons, :email)
     end
 end

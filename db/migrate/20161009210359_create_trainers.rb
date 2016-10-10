@@ -4,6 +4,7 @@ class CreateTrainers < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :level
       t.integer :tokimons
+      t.string :email
 
       t.timestamps
     end

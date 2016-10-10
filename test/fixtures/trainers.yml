@@ -4,8 +4,10 @@ one:
   name: MyString
   level: 1
   tokimons: 1
+  email: MyString
 
 two:
   name: MyString
   level: 1
   tokimons: 1
+  email: MyString

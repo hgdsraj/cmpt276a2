@@ -69,6 +69,6 @@ class TokimonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tokimon_params
-      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :freeze, :psychic, :total)
+      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :total)
     end
 end

@@ -17,7 +17,7 @@ class TrainersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create trainer" do
     assert_difference('Trainer.count') do
-      post trainers_url, params: { trainer: { level: @trainer.level, name: @trainer.name, tokimons: @trainer.tokimons } }
+      post trainers_url, params: { trainer: { email: @trainer.email, level: @trainer.level, name: @trainer.name, tokimons: @trainer.tokimons } }
     end
 
     assert_redirected_to trainer_url(Trainer.last)
@@ -34,7 +34,7 @@ class TrainersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update trainer" do
-    patch trainer_url(@trainer), params: { trainer: { level: @trainer.level, name: @trainer.name, tokimons: @trainer.tokimons } }
+    patch trainer_url(@trainer), params: { trainer: { email: @trainer.email, level: @trainer.level, name: @trainer.name, tokimons: @trainer.tokimons } }
     assert_redirected_to trainer_url(@trainer)
   end
 

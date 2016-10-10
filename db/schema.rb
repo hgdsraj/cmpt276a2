@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009204832) do
+ActiveRecord::Schema.define(version: 20161009210359) do
 
   create_table "tokimons", force: :cascade do |t|
     t.string   "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20161009204832) do
     t.float    "fire"
     t.float    "water"
     t.float    "electric"
-    t.float    "freeze"
+    t.float    "ice"
     t.float    "psychic"
     t.float    "total"
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161009204832) do
     t.string   "name"
     t.integer  "level"
     t.integer  "tokimons"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'rails_12factor'
+gem 'safe_attributes'
 
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri

@@ -11,7 +11,7 @@ class CreateTokimons < ActiveRecord::Migration[5.0]
       t.float :fire
       t.float :water
       t.float :electric
-      t.float :freeze
+      t.float :ice
       t.float :psychic
       t.float :total
 

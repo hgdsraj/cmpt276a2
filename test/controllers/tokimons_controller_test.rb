@@ -17,7 +17,7 @@ class TokimonsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create tokimon" do
     assert_difference('Tokimon.count') do
-      post tokimons_url, params: { tokimon: { defense: @tokimon.defense, electric: @tokimon.electric, fight: @tokimon.fight, fire: @tokimon.fire, fly: @tokimon.fly, freeze: @tokimon.freeze, health: @tokimon.health, height: @tokimon.height, name: @tokimon.name, psychic: @tokimon.psychic, total: @tokimon.total, water: @tokimon.water, weight: @tokimon.weight } }
+      post tokimons_url, params: { tokimon: { defense: @tokimon.defense, electric: @tokimon.electric, fight: @tokimon.fight, fire: @tokimon.fire, fly: @tokimon.fly, health: @tokimon.health, height: @tokimon.height, ice: @tokimon.ice, name: @tokimon.name, psychic: @tokimon.psychic, total: @tokimon.total, water: @tokimon.water, weight: @tokimon.weight } }
     end
 
     assert_redirected_to tokimon_url(Tokimon.last)
@@ -34,7 +34,7 @@ class TokimonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tokimon" do
-    patch tokimon_url(@tokimon), params: { tokimon: { defense: @tokimon.defense, electric: @tokimon.electric, fight: @tokimon.fight, fire: @tokimon.fire, fly: @tokimon.fly, freeze: @tokimon.freeze, health: @tokimon.health, height: @tokimon.height, name: @tokimon.name, psychic: @tokimon.psychic, total: @tokimon.total, water: @tokimon.water, weight: @tokimon.weight } }
+    patch tokimon_url(@tokimon), params: { tokimon: { defense: @tokimon.defense, electric: @tokimon.electric, fight: @tokimon.fight, fire: @tokimon.fire, fly: @tokimon.fly, health: @tokimon.health, height: @tokimon.height, ice: @tokimon.ice, name: @tokimon.name, psychic: @tokimon.psychic, total: @tokimon.total, water: @tokimon.water, weight: @tokimon.weight } }
     assert_redirected_to tokimon_url(@tokimon)
   end
 
