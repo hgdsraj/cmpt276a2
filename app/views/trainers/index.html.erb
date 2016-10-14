@@ -15,13 +15,14 @@
 
   <tbody>
     <% @trainers.each do |trainer| %>
+    <% Trainer.SetLevel(trainer.id) %>
       <tr>
         <td><%= trainer.name %></td>
         <td><%= trainer.level %></td>
         <td>
-          <%= @tokimons = Tokimon.where(:trainer_id => trainer.id).name %>
-          <%= @tokimons.each do |tokimons| %>
-          <%= tokimons.name %>
+          <%= @tokimons = Tokimon.where(:trainer_id => trainer.id) %>
+          <%= @tokimons.each do |t| %>
+          <%= t.name %>
 
           <% end %>
 

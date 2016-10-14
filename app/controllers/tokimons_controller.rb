@@ -25,7 +25,7 @@ class TokimonsController < ApplicationController
   # POST /tokimons.json
   def create
     @tokimon = Tokimon.new(tokimon_params)
-    @tokimon.trainer_id = -1
+    @tokimon.trainer_id = 1
     @tokimon.total = Tokimon.setTotal(@tokimon)
     respond_to do |format|
       if @tokimon.save
