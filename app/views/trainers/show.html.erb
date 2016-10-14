@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trainer.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @trainer.level %>
+</p>
+
+<p>
+  <strong>Tokimons:</strong>
+  <%= @tokimon_belong_to_trainer.each do |t| %>
+  <% t.name %>
+  <%= link_to 'Edit', t %>
+  <%= link_to 'Show', t %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @trainer.email %>
+</p>
+
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<%= link_to 'Back', trainers_path %>
