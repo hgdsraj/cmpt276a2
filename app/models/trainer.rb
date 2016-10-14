@@ -6,9 +6,8 @@ class Trainer < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_many :tokimons
   validates(:level, presence: true)
-  def self.SetLevel(id)
-    trainer = Trainer.find(id)
-    tokimon_amount = Tokimon.where(:trainer_id => id)
+  def self.SetLevel(trainer)
+    tokimon_amount = Tokimon.where(:trainer_id => trainer.id)
     trainer.level = tokimon_amount.length / 3
     trainer.save
   end

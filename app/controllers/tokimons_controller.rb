@@ -25,7 +25,7 @@ class TokimonsController < ApplicationController
   # POST /tokimons.json
   def create
     @tokimon = Tokimon.new(tokimon_params)
-    @tokimon.trainer_id = 1
+    @tokimon.trainer_id = -1
     @tokimon.total = Tokimon.setTotal(@tokimon)
     respond_to do |format|
       if @tokimon.save
@@ -71,6 +71,6 @@ class TokimonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tokimon_params
-      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :total)
+      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :total, :trainer_id)
     end
 end

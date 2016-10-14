@@ -15,16 +15,7 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-  <% @tokimon_all.each do |t| %>
-    <%= f.check_box(:name, { :multiple => true }, t) %>
-  <% end %>
-</div>
 
-  <div class="field" style ="visibility:hidden">
-    <%= f.label :level %>
-    <%= f.number_field :level %>
-  </div>
 
   <div class="field">
     <%= f.label :email %>

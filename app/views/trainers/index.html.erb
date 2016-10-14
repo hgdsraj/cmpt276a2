@@ -15,7 +15,7 @@
 
   <tbody>
     <% @trainers.each do |trainer| %>
-    <% Trainer.SetLevel(trainer.id) %>
+    <% Trainer.SetLevel(trainer) %>
       <tr>
         <td><%= trainer.name %></td>
         <td><%= trainer.level %></td>
