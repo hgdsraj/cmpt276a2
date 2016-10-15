@@ -12,7 +12,7 @@ gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'rails_12factor'
 gem 'safe_attributes'
-
+gem 'friendly_id'
 group :development, :test do
   gem 'byebug',  '9.0.0', platform: :mri
   gem 'sqlite3'
