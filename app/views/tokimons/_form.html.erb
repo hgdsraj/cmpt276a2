@@ -70,6 +70,10 @@
     <%= f.label :psychic %>
     <%= f.text_field :psychic %>
   </div>
+  <div class="field">
+    <%= f.label :trainer_id %>
+    <%= f.collection_select :trainer_id, Trainer.all, :id, :name %>
+  </div>
 
 
   <div class="actions">

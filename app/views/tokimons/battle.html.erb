@@ -1,0 +1,7 @@
+<h1>Battle Tokimon</h1>
+<% provide(:title, "Battle Tokimon") %>
+
+<%= render 'bat', tokimon_one: @tokimon_one, tokimon_two: @tokimon_two %>
+
+<%= link_to 'Show', @tokimon %> |
+<%= link_to 'Back', tokimons_path %>

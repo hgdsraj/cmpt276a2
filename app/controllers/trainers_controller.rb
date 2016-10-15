@@ -5,14 +5,12 @@ class TrainersController < ApplicationController
   # GET /trainers.json
   def index
     @trainers = Trainer.all
-
   end
 
   # GET /trainers/1
   # GET /trainers/1.json
   def show
     @tokimon_belong_to_trainer = Tokimon.where(:trainer_id => @trainer.id)
-
   end
 
   # GET /trainers/new
@@ -47,9 +45,8 @@ class TrainersController < ApplicationController
   # PATCH/PUT /trainers/1
   # PATCH/PUT /trainers/1.json
   def update
-    respond_to do |format|
     Trainer.SetLevel(@trainer)
-
+    respond_to do |format|
       if @trainer.update(trainer_params)
         format.html { redirect_to @trainer, notice: 'Trainer was successfully updated.' }
         format.json { render :show, status: :ok, location: @trainer }
@@ -64,7 +61,10 @@ class TrainersController < ApplicationController
   # DELETE /trainers/1.json
   def destroy
     @trainer.destroy
-    Tokimon.RemoveID(@trainer.id)
+    associatedTokimons = Tokimon.where(:trainer_id => @trainer.id)
+    associatedTokimons.each do |t|
+      t.destroy
+    end
     respond_to do |format|
       format.html { redirect_to trainers_url, notice: 'Trainer was successfully destroyed.' }
       format.json { head :no_content }
@@ -76,13 +76,7 @@ class TrainersController < ApplicationController
     def set_trainer
       @trainer = Trainer.find(params[:id])
     end
-    def set_tokimon
-        @tokimon = Tokimon.find(params[:id])
-    end
     # Never trust parameters from the scary internet, only allow the white list through.
-    def tokimon_params
-        params.permit(:tokimon)
-    end
     def trainer_params
       params.require(:trainer).permit(:name, :email, :level)
     end

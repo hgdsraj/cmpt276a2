@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.navcol {
+  background-color: #2b3742;
+}
+.text {
+  color: white;
+}

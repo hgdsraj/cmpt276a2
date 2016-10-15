@@ -1,18 +1,20 @@
 class Tokimon < ApplicationRecord
 
   validates(:name, presence: true)
-  validates(:weight, presence: true)
-  validates(:height, presence: true)
-  validates(:defense, presence: true)
-  validates(:health, presence: true)
-  validates(:fly, presence: true)
-  validates(:fight, presence: true)
-  validates(:fire, presence: true)
-  validates(:water, presence: true)
-  validates(:electric, presence: true)
-  validates(:ice, presence: true)
-  validates(:psychic, presence: true)
+  validates(:weight, presence: true, numericality: true)
+  validates(:height, presence: true, numericality: true)
+  validates(:defense, presence: true, numericality: true)
+  validates(:health, presence: true, numericality: true)
+  validates(:fly, presence: true, numericality: true)
+  validates(:fight, presence: true, numericality: true)
+  validates(:fire, presence: true, numericality: true)
+  validates(:water, presence: true, numericality: true)
+  validates(:electric, presence: true, numericality: true)
+  validates(:ice, presence: true, numericality: true)
+  validates(:psychic, presence: true, numericality: true)
   validates(:total, presence: true)
+  validates(:trainer_id, presence: true)
+  belongs_to :trainer
 
   def self.RemoveID(id)
     tokimon_all = Tokimon.where(:trainer_id => id)
@@ -23,7 +25,11 @@ class Tokimon < ApplicationRecord
   def self.getAll(id)
     return Tokimon.where(:trainer_id => id).name
   end
+  def self.getTotal(t)
+    return t.total
+  end
   def self.setTotal(t)
-    t.total = t.fly + t.fight + t.fire + t.water + t.electric + t.ice + t.psychic
+    total = t.fly + t.fight + t.fire + t.water + t.electric + t.ice + t.psychic
+    return total
   end
 end

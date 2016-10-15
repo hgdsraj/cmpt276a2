@@ -1,0 +1,15 @@
+  <%= form_tag("/tokimons/battler", method: "get" ) do %>
+  <div class="field">
+    <%= label_tag(:trainer_id, "Tokimon One") %>
+    <%= collection_select(:tokimon, :tokimon_one, Tokimon.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:trainer_id, "Tokimon Two") %>
+    <%= collection_select(:tokimon, :tokimon_two, Tokimon.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag("BATTLE!") %>
+  </div>
+  <% end %>

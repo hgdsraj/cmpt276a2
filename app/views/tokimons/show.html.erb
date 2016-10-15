@@ -64,6 +64,12 @@
   <strong>Total:</strong>
   <%= @tokimon.total %>
 </p>
+<p>
+  <strong>Trainer:</strong>
+  <%= @trainer.name  %> &nbsp;&nbsp;&nbsp;
+  <%= link_to 'Show', @trainer %>&nbsp;&nbsp;&nbsp;  
+  <%= link_to 'Edit', edit_trainer_path(@trainer) %>
+</p>
 
 <%= link_to 'Edit', edit_tokimon_path(@tokimon) %> |
 <%= link_to 'Back', tokimons_path %>

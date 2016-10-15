@@ -7,9 +7,37 @@ class TokimonsController < ApplicationController
     @tokimons = Tokimon.all
   end
 
+  # GET /tokimons/battle
+  # GET /tokimons.json
+  def battle
+    @tokimons = Tokimon.all
+  end
+
+  # GET /tokimons/battler
+  # GET /tokimons.json
+  def battler
+    @tokimon_one = Tokimon.find(battle_params[:tokimon_one])
+    @tokimon_two = Tokimon.find(battle_params[:tokimon_two])
+    result = "The Winner is... "
+    if Tokimon.getTotal(@tokimon_one) > Tokimon.getTotal(@tokimon_two)
+      result += String(@tokimon_one.name)
+    elsif Tokimon.getTotal(@tokimon_one) < Tokimon.getTotal(@tokimon_two)
+      result += String(@tokimon_two.name)
+    else
+      result = "It was a tie! :("
+    end
+
+    respond_to do |format|
+      format.html { redirect_to tokimons_url, notice: result}
+      format.json { render :show, location: battle }
+    end
+  end
+
   # GET /tokimons/1
   # GET /tokimons/1.json
   def show
+    @trainer = Trainer.find(@tokimon.trainer_id)
+
   end
 
   # GET /tokimons/new
@@ -24,8 +52,8 @@ class TokimonsController < ApplicationController
   # POST /tokimons
   # POST /tokimons.json
   def create
+    Trainer.SetLevel(trainer)
     @tokimon = Tokimon.new(tokimon_params)
-    @tokimon.trainer_id = -1
     @tokimon.total = Tokimon.setTotal(@tokimon)
     respond_to do |format|
       if @tokimon.save
@@ -42,8 +70,14 @@ class TokimonsController < ApplicationController
   # PATCH/PUT /tokimons/1.json
   def update
     respond_to do |format|
+
       if @tokimon.update(tokimon_params)
-        Tokimon.setTotal(@tokimon)
+        @tokimon.total = Tokimon.setTotal(@tokimon)
+        @tokimon.save
+
+        trainer = Trainer.find(tokimon_params[:trainer_id])
+        Trainer.SetLevel(trainer)
+
         format.html { redirect_to @tokimon, notice: 'Tokimon was successfully updated.' }
         format.json { render :show, status: :ok, location: @tokimon }
       else
@@ -68,9 +102,12 @@ class TokimonsController < ApplicationController
     def set_tokimon
       @tokimon = Tokimon.find(params[:id])
     end
+    def battle_params
+      params.require(:tokimon).permit(:tokimon_one, :tokimon_two)
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tokimon_params
-      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :total, :trainer_id)
+      params.require(:tokimon).permit(:name, :weight, :height, :defense, :health, :fly, :fight, :fire, :water, :electric, :ice, :psychic, :trainer_id)
     end
 end
