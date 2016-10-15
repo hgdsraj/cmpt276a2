@@ -10,7 +10,6 @@ class TrainersController < ApplicationController
   # GET /trainers/1
   # GET /trainers/1.json
   def show
-    @tokimon_belong_to_trainer = Tokimon.where(:trainer_id => @trainer.id)
   end
 
   # GET /trainers/new

@@ -32,11 +32,23 @@ class Tokimon < ApplicationRecord
     total = t.fly + t.fight + t.fire + t.water + t.electric + t.ice + t.psychic
     return total
   end
-  def self.getAllAt(t)
+
+  def self.getAllAtName(t)
     all = Tokimon.where(:trainer_id => t.id)
     g = Array.new()
     all.each do |a|
       g.push(a.name)
+    end
+    g = g.join(", ")
+
+    return g
+  end
+
+  def self.getAllAtID(t)
+    all = Tokimon.where(:trainer_id => t.id)
+    g = Array.new()
+    all.each do |a|
+      g.push(a)
     end
     return g
   end
