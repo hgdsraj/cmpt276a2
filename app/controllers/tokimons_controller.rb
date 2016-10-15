@@ -37,7 +37,6 @@ class TokimonsController < ApplicationController
   # GET /tokimons/1.json
   def show
     @trainer = Trainer.find(@tokimon.trainer_id)
-
   end
 
   # GET /tokimons/new
@@ -52,6 +51,7 @@ class TokimonsController < ApplicationController
   # POST /tokimons
   # POST /tokimons.json
   def create
+    trainer = Trainer.find(tokimon_params[:trainer_id])
     Trainer.SetLevel(trainer)
     @tokimon = Tokimon.new(tokimon_params)
     @tokimon.total = Tokimon.setTotal(@tokimon)
