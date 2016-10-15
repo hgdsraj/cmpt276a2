@@ -17,13 +17,11 @@ class TrainersController < ApplicationController
   def new
     @trainer = Trainer.new
     @tokimon_all = Tokimon.where(:trainer_id => -1)
-
   end
 
   # GET /trainers/1/edit
   def edit
     @tokimon_all = Tokimon.where(:trainer_id => -1)
-
   end
 
   # POST /trainers

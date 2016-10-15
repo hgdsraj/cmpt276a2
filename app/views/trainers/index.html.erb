@@ -20,10 +20,7 @@
         <td><%= trainer.name %></td>
         <td><%= trainer.level %></td>
         <td>
-          <%= @tokimons = Tokimon.where(:trainer_id => trainer.id) %>
-          <%= @tokimons.each do |t| %>
-          <%= t.name %>
-
+          <%= Tokimon.getAllAt(trainer).each do |t| %>
           <% end %>
 
         </td>
